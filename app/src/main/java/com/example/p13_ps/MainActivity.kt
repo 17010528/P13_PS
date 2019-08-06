@@ -20,27 +20,60 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-    fun btnOnClick(view : View){
+
+    fun btnOnClick(view: View) {
 
 
         val btnSelected = view as Button
-        if(change == false) {
-            when (btnSelected.id) {
+        if (change == false) {
+            if (first.startsWith("0")) {
+                when (btnSelected.id) {
+                    button01.id -> first = "1"
+                    button02.id -> first = "2"
+                    button03.id -> first = "3"
+                    button04.id -> first = "4"
+                    button05.id -> first = "5"
+                    button06.id -> first = "6"
+                    button07.id -> first = "7"
+                    button08.id -> first = "8"
+                    button09.id -> first = "9"
+                }
+                tvSum.text = "$first"
 
-                button00.id -> first = first + "0"
-                button01.id -> first = first + "1"
-                button02.id -> first = first + "2"
-                button03.id -> first = first + "3"
-                button04.id -> first = first + "4"
-                button05.id -> first = first + "5"
-                button06.id -> first = first + "6"
-                button07.id -> first = first + "7"
-                button08.id -> first = first + "8"
-                button09.id -> first = first + "9"
+            } else {
+                when (btnSelected.id) {
+
+                    button00.id -> first = first + "0"
+                    button01.id -> first = first + "1"
+                    button02.id -> first = first + "2"
+                    button03.id -> first = first + "3"
+                    button04.id -> first = first + "4"
+                    button05.id -> first = first + "5"
+                    button06.id -> first = first + "6"
+                    button07.id -> first = first + "7"
+                    button08.id -> first = first + "8"
+                    button09.id -> first = first + "9"
+                }
+
+                tvSum.text = "$first"
 
             }
-            tvSum.text = "$first"
-        }else{
+        } else {
+            if (first.startsWith("0")) {
+                when (btnSelected.id) {
+                    button01.id -> second = "1"
+                    button02.id -> second = "2"
+                    button03.id -> second = "3"
+                    button04.id -> second = "4"
+                    button05.id -> second = "5"
+                    button06.id -> second = "6"
+                    button07.id -> second = "7"
+                    button08.id -> second = "8"
+                    button09.id -> second = "9"
+                }
+                tvSum.text = "$second"
+
+            }
             when (btnSelected.id) {
 
                 button00.id -> second = second + "0"
@@ -61,32 +94,33 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    fun btnOpClick(view : View){
+
+    fun btnOpClick(view: View) {
 
 
         val btnSelected = view as Button
-        when(btnSelected.id){
+        when (btnSelected.id) {
             buttonDivide.id -> op = "/"
             buttonMinus.id -> op = "-"
             buttonTimes.id -> op = "*"
             buttonPlus.id -> op = "+"
         }
-        if(op == "+" && second != ""){
+        if (op == "+" && second != "") {
             total = first.toDouble() + second.toDouble()
             first = total.toString()
             second = ""
             total = 0.0
-        }else if(op == "-"&& second != "" ){
+        } else if (op == "-" && second != "") {
             total = first.toDouble() - second.toDouble()
             first = total.toString()
             second = ""
             total = 0.0
-        }else if(op == "*"&& second != ""){
+        } else if (op == "*" && second != "") {
             total = first.toDouble() * second.toDouble()
             first = total.toString()
             second = ""
             total = 0.0
-        }else if(op == "/"&& second != ""){
+        } else if (op == "/" && second != "") {
             total = first.toDouble() / second.toDouble()
             first = total.toString()
             second = ""
@@ -99,47 +133,47 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun btnEqualsClick(view : View){
+    fun btnEqualsClick(view: View) {
 
-            if(op == "+"){
-                total = first.toDouble() + second.toDouble()
-            }else if(op == "-"){
-                total = first.toDouble() - second.toDouble()
-            }else if(op == "*"){
-                total = first.toDouble() * second.toDouble()
-            }else if(op == "/"){
-                total = first.toDouble() / second.toDouble()
-            }
-            tvSum.text = total.toString()
-            first = total.toString()
-            total = 0.0
-            second = ""
-            dot = false
-            buttonDot.isEnabled = true
-
-
+        if (op == "+") {
+            total = first.toDouble() + second.toDouble()
+        } else if (op == "-") {
+            total = first.toDouble() - second.toDouble()
+        } else if (op == "*") {
+            total = first.toDouble() * second.toDouble()
+        } else if (op == "/") {
+            total = first.toDouble() / second.toDouble()
+        }
+        tvSum.text = total.toString()
+        first = total.toString()
+        total = 0.0
+        second = ""
+        dot = false
+        buttonDot.isEnabled = true
 
 
     }
-    fun btnACClick(view : View){
+
+    fun btnACClick(view: View) {
         first = ""
         second = ""
-        tvSum.text = ""
+        tvSum.text = "0"
         change = false
         dot = false
+        buttonDot.isEnabled = true
 
     }
 
-    fun btnDotClick(view : View){
-        if(change == false){
-             first = first + "."
+    fun btnDotClick(view: View) {
+        if (change == false) {
+            first = first + "."
             tvSum.text = "$first"
-        }else if(change == true){
+        } else if (change == true) {
             second = second + "."
             tvSum.text = "$second"
         }
 
-        if(dot == false){
+        if (dot == false) {
             dot = true
             buttonDot.isEnabled = false
         }
