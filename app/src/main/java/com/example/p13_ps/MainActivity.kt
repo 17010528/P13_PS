@@ -72,6 +72,27 @@ class MainActivity : AppCompatActivity() {
             buttonTimes.id -> op = "*"
             buttonPlus.id -> op = "+"
         }
+        if(op == "+" && second != ""){
+            total = first.toDouble() + second.toDouble()
+            first = total.toString()
+            second = ""
+            total = 0.0
+        }else if(op == "-"&& second != "" ){
+            total = first.toDouble() - second.toDouble()
+            first = total.toString()
+            second = ""
+            total = 0.0
+        }else if(op == "*"&& second != ""){
+            total = first.toDouble() * second.toDouble()
+            first = total.toString()
+            second = ""
+            total = 0.0
+        }else if(op == "/"&& second != ""){
+            total = first.toDouble() / second.toDouble()
+            first = total.toString()
+            second = ""
+            total = 0.0
+        }
         change = true
         tvSum.text = ""
     }
