@@ -12,6 +12,7 @@ var second = ""
 var total = 0.0
 var change = false
 var op = ""
+var dot = false
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,7 +37,6 @@ class MainActivity : AppCompatActivity() {
                 button07.id -> first = first + "7"
                 button08.id -> first = first + "8"
                 button09.id -> first = first + "9"
-                buttonDot.id -> first = first + "."
 
             }
             tvSum.text = "$first"
@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                 button07.id -> second = second + "7"
                 button08.id -> second = second + "8"
                 button09.id -> second = second + "9"
-                buttonDot.id -> second = second + "."
 
             }
             tvSum.text = "$second"
@@ -94,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             total = 0.0
         }
         change = true
+        dot = false
         tvSum.text = ""
     }
 
@@ -112,6 +112,7 @@ class MainActivity : AppCompatActivity() {
             first = total.toString()
             total = 0.0
             second = ""
+            dot = false
 
 
 
@@ -122,6 +123,19 @@ class MainActivity : AppCompatActivity() {
         second = ""
         tvSum.text = ""
         change = false
+        dot = false
+
+    }
+
+    fun btnDotClick(view : View){
+        if(change == false){
+             first = first + "."
+            tvSum.text = "$first"
+        }else if(change == true){
+            second = second + "."
+            tvSum.text = "$second"
+        }
+
     }
 
 }

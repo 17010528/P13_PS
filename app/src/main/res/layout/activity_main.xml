@@ -146,7 +146,7 @@
                 android:layout_marginRight="2dip"/>
         <Button
                 android:id="@+id/buttonDot"
-                android:onClick="btnOnClick"
+                android:onClick="btnDotClick"
                 android:text="."
                 android:background="#C4C1C1"
                 android:layout_marginRight="2dip"/>
