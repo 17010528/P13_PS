@@ -95,6 +95,8 @@ class MainActivity : AppCompatActivity() {
         change = true
         dot = false
         tvSum.text = ""
+        buttonDot.isEnabled = true
+
     }
 
     fun btnEqualsClick(view : View){
@@ -113,6 +115,7 @@ class MainActivity : AppCompatActivity() {
             total = 0.0
             second = ""
             dot = false
+            buttonDot.isEnabled = true
 
 
 
@@ -134,6 +137,11 @@ class MainActivity : AppCompatActivity() {
         }else if(change == true){
             second = second + "."
             tvSum.text = "$second"
+        }
+
+        if(dot == false){
+            dot = true
+            buttonDot.isEnabled = false
         }
 
     }
